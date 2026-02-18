@@ -19,3 +19,10 @@ h1 {
   line-height: 1.1;
 }
 
+.Card{
+  background-color: #333;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px; 
+  box-shadow: #242424 0px 4px 6px -1px, #242424 0px 2px 4px -1px;
+}
