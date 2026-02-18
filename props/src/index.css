@@ -1,0 +1,87 @@
+.profile-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+}
+
+.profile-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #eaeaea;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 8px 0 4px;
+  color: #222;
+}
+
+.profile-bio {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.view-profile-btn {
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.view-profile-btn:hover {
+  opacity: 0.9;
+}
+
+/* Grid wrapper */
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards in one line */
+  gap: 20px;              /* space between cards */
+  padding: 20px;         /* space from all sides */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure card fits inside grid column */
+.profile-card {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .cards-wrapper {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  }
+}
+
+@media (max-width: 640px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr; /* 1 per row */
+  }
+}
