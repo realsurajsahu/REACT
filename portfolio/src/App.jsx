@@ -108,7 +108,7 @@ const App = () => {
 
 
   return(jobs.map(function(elem){
-   
+  
     return <Cards 
     company = {elem.companyName}
     logo = {elem.brandLogo}
@@ -119,10 +119,8 @@ const App = () => {
     pay = {elem.pay}
     location = {elem.location}
     />
-   
   }))
   
 }
 
 export default App
-
