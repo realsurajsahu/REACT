@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background: #000;
+  color: aliceblue;
+}
+
+body {
+  background-color: black;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-size: 150px;
+  background-color: gray;
+  width: fit-content;
+  padding: 25px 150px;
+}
+
+button {
+  padding: 10px;
+  margin: 5px;
+}
+
+.button-container {
+  margin-top: 20px;
+  width: fit-content;
+}
+
+.btn {
+  padding: 10px 24.5px;
+}
+
+.btn-reset {
+  padding: 10px 125px;
+}
+/* ...existing code... */
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
