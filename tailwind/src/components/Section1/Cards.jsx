@@ -1,15 +1,15 @@
 import React from "react";
 import CardContent from "./CardContent";
 
-const Cards = () => {
+const Cards = (props) => {
   return (
-    <div className="h-full w-80 bg-red-600 rounded-4xl overflow-hidden relative">
+    <div className="h-full w-80 rounded-4xl overflow-hidden relative shrink-0">
       <img
-        src="https://images.unsplash.com/photo-1770027705793-e68be23cdd5f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        src={props.img}
         alt=""
         className="h-full object-cover"
       />
-      <CardContent/>
+      <CardContent id = {props.id} desc = {props.desc} buttonColor = {props.buttonColor} button = {props.button}/>
     </div>
   );
 };

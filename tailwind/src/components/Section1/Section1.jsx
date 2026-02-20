@@ -2,11 +2,11 @@ import React from "react";
 import Navbar from "./Navbar";
 import Content from "./Content";
 
-const Section1 = () => {
+const Section1 = (props) => {
   return (
     <div className="h-screen w-full p-6">
-      <Navbar />
-      <Content />
+      <Navbar/>
+      <Content users = {props.users}/>
     </div>
   );
 };
