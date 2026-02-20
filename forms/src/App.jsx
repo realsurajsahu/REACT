@@ -2,12 +2,11 @@ import React from "react";
 import { useState } from "react";
 
 const App = () => {
-
-  const [Text, setText] = useState('')
+  const [Text, setText] = useState("");
 
   const submit = (e) => {
     e.preventDefault();
-    console.log("Submitted by", Text );
+    console.log("Submitted by", Text);
   };
 
   return (
