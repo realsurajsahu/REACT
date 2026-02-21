@@ -1,15 +1,25 @@
 import React, { useState } from "react";
+import { X } from "lucide-react";
 
 const App = () => {
-  const [Title, setTitle] = useState('')
-  const [Details, setDetails] = useState('')
-
+  const [Title, setTitle] = useState("");
+  const [Details, setDetails] = useState("");
+  const [Task, setTask] = useState([]);
 
   const handler = (e) => {
     e.preventDefault();
-    console.log(Title , Details);
-    setTitle('')
-    setDetails('')
+    const copyTask = [...Task];
+    copyTask.push({ Title, Details });
+    setTask(copyTask);
+
+    setTitle("");
+    setDetails("");
+  };
+
+  const deleteNote = (idx) => {
+    const copyTask = [...Task];
+    copyTask.splice(idx, 1);
+    setTask(copyTask);
   };
 
   return (
@@ -31,8 +41,8 @@ const App = () => {
             type="text"
             placeholder="Enter your title"
             value={Title}
-            onChange={(e)=>{
-              setTitle(e.target.value)
+            onChange={(e) => {
+              setTitle(e.target.value);
             }}
             className="border rounded-xl shadow-xl p-3 w-full mb-7 text-xl"
           />
@@ -42,8 +52,8 @@ const App = () => {
             placeholder="Write your note..."
             className="border rounded-xl shadow-xl p-3 h-50 w-full mb-10"
             value={Details}
-            onChange={(e)=>{
-              setDetails(e.target.value)
+            onChange={(e) => {
+              setDetails(e.target.value);
             }}
           ></textarea>
           <br />
@@ -60,62 +70,28 @@ const App = () => {
         <br />
         <br />
         <div className="flex gap-2 flex-wrap">
-          <div className="w-80 text-pretty border-2 border-white p-5 ms-6 rounded-2xl">
-            <h3 className="text-xl pb-3 font-semibold text-white">Meeting Notes</h3>
-            <hr className="pb-3 text-white" />
-            <p className="text-white">
-              Lorem ipsum dolor sit amet consectetur, kdnvfe fkve jfdnvfje vnf
-              vjefv fn
-            </p>
-          </div>
-          <div className="w-80 text-pretty border-2 border-white p-5 ms-6 rounded-2xl">
-            <h3 className="text-xl pb-3 font-semibold text-white">Meeting Notes</h3>
-            <hr className="pb-3 text-white" />
-            <p className="text-white">
-              Lorem ipsum dolor sit amet consectetur, kdnvfe fkve jfdnvfje vnf
-              vjefv fn
-            </p>
-          </div>
-          <div className="w-80 text-pretty border-2 border-white p-5 ms-6 rounded-2xl">
-            <h3 className="text-xl pb-3 font-semibold text-white">Meeting Notes</h3>
-            <hr className="pb-3 text-white" />
-            <p className="text-white">
-              Lorem ipsum dolor sit amet consectetur, kdnvfe fkve jfdnvfje vnf
-              vjefv fn
-            </p>
-          </div>
-          <div className="w-80 text-pretty border-2 border-white p-5 ms-6 rounded-2xl">
-            <h3 className="text-xl pb-3 font-semibold text-white">Meeting Notes</h3>
-            <hr className="pb-3 text-white" />
-            <p className="text-white">
-              Lorem ipsum dolor sit amet consectetur, kdnvfe fkve jfdnvfje vnf
-              vjefv fn
-            </p>
-          </div>
-          <div className="w-80 text-pretty border-2 border-white p-5 ms-6 rounded-2xl">
-            <h3 className="text-xl pb-3 font-semibold text-white">Meeting Notes</h3>
-            <hr className="pb-3 text-white" />
-            <p className="text-white">
-              Lorem ipsum dolor sit amet consectetur, kdnvfe fkve jfdnvfje vnf
-              vjefv fn
-            </p>
-          </div>
-          <div className="w-80 text-pretty border-2 border-white p-5 ms-6 rounded-2xl">
-            <h3 className="text-xl pb-3 font-semibold text-white">Meeting Notes</h3>
-            <hr className="pb-3 text-white" />
-            <p className="text-white">
-              Lorem ipsum dolor sit amet consectetur, kdnvfe fkve jfdnvfje vnf
-              vjefv fn
-            </p>
-          </div>
-          <div className="w-80 text-pretty border-2 border-white p-5 ms-6 rounded-2xl">
-            <h3 className="text-xl pb-3 font-semibold text-white">Meeting Notes</h3>
-            <hr className="pb-3 text-white" />
-            <p className="text-white">
-              Lorem ipsum dolor sit amet consectetur, kdnvfe fkve jfdnvfje vnf
-              vjefv fn
-            </p>
-          </div>
+          {Task.map((elem, idx) => {
+            return (
+              <div
+                key={idx}
+                className="w-80 text-pretty border-2 border-white p-5 ms-6 rounded-2xl"
+              >
+                <div className="flex justify-between">
+                  <h3 className="text-xl pb-3 font-semibold text-white">
+                    {elem.Title}
+                  </h3>
+                  <button
+                    onClick={deleteNote}
+                    className="text-xl font-semibold text-white bg-red-600 m-2"
+                  >
+                    <X />
+                  </button>
+                </div>
+                <hr className="pb-3 text-white" />
+                <p className="text-white">{elem.Details}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
