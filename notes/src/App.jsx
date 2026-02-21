@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 const App = () => {
+  const [Title, setTitle] = useState('')
+  const [Details, setDetails] = useState('')
+
+
   const handler = (e) => {
     e.preventDefault();
-    console.log("submitted");
+    console.log(Title , Details);
+    setTitle('')
+    setDetails('')
   };
 
   return (
@@ -17,20 +23,28 @@ const App = () => {
           onSubmit={(e) => {
             handler(e);
           }}
-          className=" text-white max-w-full p-6 m-6 rounded-2xl shadow-2xl"
+          className=" text-white max-w-full p-6 m-6 rounded-xl shadow-2xl"
         >
           <h4 className="text-2xl font-semibold">Note Title</h4>
           <br />
           <input
             type="text"
             placeholder="Enter your title"
-            className="border rounded-2xl shadow-xl p-3 w-full mb-7 text-xl"
+            value={Title}
+            onChange={(e)=>{
+              setTitle(e.target.value)
+            }}
+            className="border rounded-xl shadow-xl p-3 w-full mb-7 text-xl"
           />
           <h4 className="text-2xl font-semibold">Note Description</h4>
           <br />
           <textarea
             placeholder="Write your note..."
-            className="border rounded-2xl shadow-xl p-3 h-50 w-full mb-10"
+            className="border rounded-xl shadow-xl p-3 h-50 w-full mb-10"
+            value={Details}
+            onChange={(e)=>{
+              setDetails(e.target.value)
+            }}
           ></textarea>
           <br />
           <button className="w-full border  p-3 rounded-4xl font-semibold text-2xl">
